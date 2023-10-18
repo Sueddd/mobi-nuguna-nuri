@@ -4,6 +4,7 @@ import { useSession } from 'next-auth/react';
 
 import { ReviewDelete } from '@/api/reviewAPI';
 import { Button } from '@/components/ui/button';
+import { reviewPostAtom } from '@/types/review/atom';
 import { ReviewType } from '@/types/review/types';
 import FormatCreateDate from '@/utils/FormatCreateDate';
 
@@ -13,6 +14,7 @@ import ReviewCommentForm from '../ReviewCommentForm';
 const reviewCommentsAtom = atom<{ [key: number]: boolean }>({});
 
 const OneReivew = ({ item }: { item: ReviewType }) => {
+  const [dataList, setDataList] = useAtom(reviewPostAtom);
   const [reviewCommentsState, setReviewCommentsState] = useAtom(reviewCommentsAtom);
   const { id, userId, createDate, content, comments } = item;
   const maskingUserId = userId?.replace(/.{3}$/, '***');
@@ -32,6 +34,7 @@ const OneReivew = ({ item }: { item: ReviewType }) => {
   const onDeleteReview = async (id: number) => {
     if (isSession) {
       await ReviewDelete(id);
+      setDataList((v) => v.filter((v) => v.id !== id));
     }
   };
 
