@@ -13,7 +13,7 @@ const Review = () => {
 
   useEffect(() => {
     ReviewApi().then((data) => setDataList(data));
-  });
+  }, []);
 
   return (
     <div className='flex flex-col items-center max-w-xl m-auto'>
