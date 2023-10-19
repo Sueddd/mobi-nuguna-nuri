@@ -6,7 +6,7 @@ import { BlogTypes } from '@/types/blog/types';
 const OneItem = ({ post }: { post: BlogTypes }) => {
   return (
     <div className='w-full ml-4 px-3'>
-      <Image src={post.img} alt={post.id} width={430} height={30} priority />
+      <Image src={post.img} alt={post.title} width={430} height={30} priority />
       <div className='mt-3 font-semibold'>{post.title}</div>
       <div className='text-sm text-slate-400'>{post.date}</div>
       <div className='mt-8 font-semibold text-sm'>{post.content}</div>

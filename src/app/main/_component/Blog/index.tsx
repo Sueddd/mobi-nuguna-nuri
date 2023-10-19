@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getSortedPostsData } from '@/api/blogApi';
 import Button from '@/components/Button/Button';
 
-import OneItem from './oneItem';
+import OneItem from './_components/oneItem';
 
 const MainBlog = () => {
   const posts = getSortedPostsData();
@@ -23,7 +23,7 @@ const MainBlog = () => {
         </div>
         <div className='flex justify-center items-center'>
           <div className='flex max-w-7xl'>
-            {posts.slice(0, 3).map((post) => (
+            {posts?.slice(0, 3).map((post) => (
               <OneItem key={post.id} post={post} />
             ))}
           </div>

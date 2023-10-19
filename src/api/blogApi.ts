@@ -19,6 +19,7 @@ export function getSortedPostsData() {
 
     const blogPost: BlogTypes = {
       id,
+      idx: matterResult.data.idx,
       title: matterResult.data.title,
       date: matterResult.data.date,
       content: matterResult.data.content,

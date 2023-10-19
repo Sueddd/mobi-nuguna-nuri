@@ -8,6 +8,7 @@ import { ApiType } from '@/types/main/types';
 const EventFeed = async () => {
   const fetchData = await mainApi(1, 3);
   const url = `/collect`;
+
   return (
     <>
       <div className='mt-28 flex flex-col max-w-7xl m-auto mb-32 '>
