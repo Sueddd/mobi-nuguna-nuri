@@ -29,7 +29,7 @@ const CommentForm = () => {
       comments: [],
     };
     const returnData = await ReviewPost(newData);
-    setDataList((oldDataList) => [...oldDataList, returnData]);
+    (oldDataList) => [...oldDataList, returnData];
     if (!isSession) return alert('로그인을 해주세요');
   };
 
